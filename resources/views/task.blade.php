@@ -59,9 +59,9 @@
 
                                 <td>
                                     <form action="/task/{{ $task->id }}" method="post">
-
+                                        {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                   <button class="btn btn-danger">Delete</button>
+                                   <button class="btn btn-danger delete" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -72,7 +72,7 @@
                      <button class="btn btn-dark">Sort by desc</button>
                 </form>
                 <form action="/task" method="POST">
-                    {{ csrf_field() }}
+
                     <button class="btn btn-light"><a href="/">Sort by asc</button>
                 </form>
             </div>
