@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::post('/task', function(Request $request) {
+
+});
+
+Route::delete('task/{id}', function ($id) {
+
 });
