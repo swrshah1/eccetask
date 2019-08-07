@@ -1,7 +1,7 @@
-@if (count($errors) > 0)
+@if (count($errors))
 <!-- Form Error List -->
 <div class="alert alert-danger">
-    <strong>The to-do list item cannot be greater than 255 characters</strong>
+    <strong>There was an error trying to store your to-do list item:</strong>
 
     <br><br>
 
@@ -10,11 +10,11 @@
             <li>{{ $error }}</li>
         @endforeach
     </ul>
-</div>
-    
-@else
-<div class="alert">
-    <strong>The to-do list item has been stored</strong>
-</div>
-    
+</div>    
+@endif
+
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
 @endif

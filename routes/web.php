@@ -15,12 +15,16 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $tasks = Task::orderBy ('created_at', 'asc')->get();
+
+    return view('task', [
+        'tasks' => $tasks,
+    ]);
 });
 
 Route::post('/task', function(Request $request) {
     $validator = Validator::make($request->all(), [
-        'taskitem' => 'required|max:30',
+        'taskitem' => 'required|max:255',
     ]);
 
     if($validator->fails()) {
@@ -30,6 +34,8 @@ Route::post('/task', function(Request $request) {
     $task = new Task;
     $task->taskitem = $request->taskitem;
     $task->save();
+
+    return redirect('/')->with('message', 'The list item has been stored');
 });
 
 Route::delete('task/{id}', function ($id) {
