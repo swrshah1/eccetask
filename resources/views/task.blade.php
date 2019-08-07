@@ -61,13 +61,13 @@
                                     <form action="/task/{{ $task->id }}" method="post">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                   <button class="btn btn-danger delete" onclick="return confirm('Are you sure?')">Delete</button>
+                                   <button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                 </td>
                                 <td>
                                     <a href="task/{{ $task->id }}">Edit</a>
-                                </td
-                            </tr>
+                                </td>
+                                </tr>
                         @endforeach
                     </tbody>
                 </table>

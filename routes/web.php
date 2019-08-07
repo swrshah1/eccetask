@@ -56,3 +56,13 @@ Route::get('/task/{id}', 'TaskController@getItemById');
 Route::put('/task/{id}', 'TaskController@updateItem');
 
 
+Route::get('/bin', function() {
+    //$tasks = Task::onlyTrashed();
+    $tasks = Task::onlyTrashed()->get();
+    
+    return view('bin', [
+        'tasks' => $tasks,
+    ]);
+});
+
+Route::post('/restore/{id}', 'TaskController@restoreItem');

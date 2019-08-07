@@ -29,6 +29,15 @@ class TaskController extends Controller
         $task->update();
         return redirect('/')->with('message', 'Task item updated successfully');
     }
+
+    public function restoreItem($id)
+    {
+        
+        $task = Task::onlyTrashed()->find($id);
+        $task->restore();
+
+        return redirect('/')->with('message', 'The item was successfully restored');
+    }
 }
 
 
