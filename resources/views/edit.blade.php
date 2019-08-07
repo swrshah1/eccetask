@@ -18,7 +18,7 @@
       
                   <div class="form-group">
                     <label for="task-content" class="control-label">To-do item</label>
-                    <textarea name="task-content" 
+                    <textarea name="taskcontent" 
                               class="form-control" 
                               rows="1" 
                               maxlength="255" 

@@ -17,6 +17,7 @@ class TaskTable extends Migration
             $table->increments('id');
             $table->string('taskitem');
             $table->timestamps();
+            $table->softDeletes();
 
         });
     }

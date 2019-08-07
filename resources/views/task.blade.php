@@ -64,6 +64,9 @@
                                    <button class="btn btn-danger delete" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                 </td>
+                                <td>
+                                    <a href="task/{{ $task->id }}">Edit</a>
+                                </td
                             </tr>
                         @endforeach
                     </tbody>

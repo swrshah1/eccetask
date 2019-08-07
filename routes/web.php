@@ -53,3 +53,6 @@ Route::get('/sort', function() {
 
 Route::get('/task/{id}', 'TaskController@getItemById');
 
+Route::put('/task/{id}', 'TaskController@updateItem');
+
+
