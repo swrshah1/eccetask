@@ -51,3 +51,5 @@ Route::get('/sort', function() {
     ]);
 }); 
 
+Route::get('/task/{id}', 'TaskController@getItemById');
+
