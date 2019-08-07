@@ -20,8 +20,7 @@
                     <label for="task-content" class="control-label">To-do item</label>
                     <textarea name="taskcontent" 
                               class="form-control" 
-                              rows="1" 
-                              maxlength="255" 
+                              rows="1"  
                               required>{{ $task->taskitem }}</textarea> 
                   </div>
       

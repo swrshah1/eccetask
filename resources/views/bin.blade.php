@@ -36,8 +36,13 @@
                                    <button class="btn btn-dark" onclick="return confirm('Are you sure you wish to restore this item?')">Restore</button>
                                     </form>
                                 </td>
-                                
-
+                                <td>
+                                    <form action="/delete/{{ $task->id }}" method="POST">
+                                        {{ csrf_field() }}
+                                 
+                                    <button class="btn btn-danger">Permanently delete</button>
+                                    </form>
+                                </td>
                                 </tr>
                         @endforeach
                     </tbody>

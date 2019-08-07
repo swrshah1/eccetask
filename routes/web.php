@@ -66,3 +66,5 @@ Route::get('/bin', function() {
 });
 
 Route::post('/restore/{id}', 'TaskController@restoreItem');
+
+Route::post('/delete/{id}', 'TaskController@permDelete');

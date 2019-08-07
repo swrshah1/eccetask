@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use Validator;
 
 class TaskController extends Controller
 {
@@ -17,9 +18,13 @@ class TaskController extends Controller
     public function updateItem($id, Request $request)
     {
 
-        $validate = $request->validate([
+        $validator = Validator::make($request->all(), [
             'taskcontent' => 'required|max:255',
         ]);
+
+        if($validator->fails()) {
+            return redirect('/')->withInput()->withErrors($validator);
+        }
 
         $task = Task::find($id);
 
@@ -37,6 +42,18 @@ class TaskController extends Controller
         $task->restore();
 
         return redirect('/')->with('message', 'The item was successfully restored');
+    }
+
+    public function permDelete($id, Request $request) 
+    {
+    
+       $task = Task::withTrashed()->where('id', $id)->first();
+       $task->forceDelete();
+
+       return redirect('/')->with('message', 'The item was permanently deleted');
+
+        
+        
     }
 }
 
