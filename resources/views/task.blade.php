@@ -59,14 +59,22 @@
 
                                 <td>
                                     <form action="/task/{{ $task->id }}" method="post">
-                                        {{ csrf_field() }}
+
                                         {{ method_field('DELETE') }}
                                    <button class="btn btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <form action="/sort" method="GET">
+                     <button class="btn btn-dark">Sort by desc</button>
+                </form>
+                <form action="/task" method="POST">
+                    {{ csrf_field() }}
+                    <button class="btn btn-light"><a href="/">Sort by asc</button>
+                </form>
             </div>
         </div>
     @endif

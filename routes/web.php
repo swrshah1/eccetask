@@ -43,3 +43,11 @@ Route::delete('task/{id}', function ($id) {
     return redirect('/')->with('message', 'The selected item was successfully deleted');
 });
 
+Route::get('/sort', function() {
+    $tasks = Task::orderBy('created_at', 'desc')->get();
+
+    return view('task', [
+        'tasks' => $tasks,
+    ]);
+}); 
+
