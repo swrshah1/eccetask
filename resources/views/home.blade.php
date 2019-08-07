@@ -1,6 +1,6 @@
 @extends('layout')
 @section('body')
-    
+@include('common.errors')
 
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -25,10 +25,11 @@
                 <div class="links">
                     <a href="https://laravel.com/docs">To-do Items</a>
                 </div>
-            <form>
+            <form action="/task" method="POST">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="formGroupExampleInput">To-do list item:</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" size="150" maxlength="15">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" size="150" name="taskitem">
                   </div>
                   <button type="submit" class=" btn btn-primary">Submit</button>
                 </div>
