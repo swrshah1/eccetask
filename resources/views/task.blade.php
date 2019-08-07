@@ -21,12 +21,12 @@
                 <div class="title m-b-md">
                     To-do app
                 </div>
-
+                <a href="/bin">Recently Deleted</a>
             <form action="/task" method="POST">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="formGroupExampleInput">To-do list item:</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" size="150" name="taskitem">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Work on this app..." size="150" name="taskitem">
                   </div>
                   <button type="submit" class=" btn btn-primary">Submit</button>
                 </div>

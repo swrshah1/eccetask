@@ -27,7 +27,7 @@ class TaskController extends Controller
 
         $task->taskitem = $request['taskcontent'];
         $task->update();
-        return redirect('/');
+        return redirect('/')->with('message', 'Task item updated successfully');
     }
 }
 
